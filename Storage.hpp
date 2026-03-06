@@ -1,0 +1,46 @@
+#ifndef _STORAGE_HPP
+#define _STORAGE_HPP
+#include "Accounts.hpp"
+
+
+
+extern size_t size;
+extern unsigned int* idArr;
+extern std::string* nameArr;
+extern unsigned int* countArr;
+extern double* priceArr;
+extern bool isStorageCreated;
+extern unsigned int maxStorageSize;
+extern unsigned int currentStorageSize;
+extern double maxPrice;
+extern double currentExpensiveItem;
+
+
+void CreateStorage();
+void ShowStorage(int mode = 0);
+void AddProduct();
+void RemoveProduct();
+void ChangePrice();
+
+void ChangeStorage();
+void AddNewItem();
+void ChangeProductName();
+void deleteItem();
+void ChangeStorageLimits();
+
+void CheckExpensiveItem();
+
+void EmptyStorage();
+
+template<typename ArrType>
+static inline void FillArray(ArrType* dynamicArr, ArrType* staticArr)
+{
+	for (size_t i = 0; i < size; i++)
+	{
+		dynamicArr[i] = staticArr[i];
+	}
+
+}
+
+
+#endif //!_STORAGE_HPP_
