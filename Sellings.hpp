@@ -15,6 +15,6 @@ extern double cashBox;
 void Sellings();
 void PrintCheck(double totalSum);
 void CheckArrDeleter();
- 
+
 
 #endif //!_SELLINGS_HPP_

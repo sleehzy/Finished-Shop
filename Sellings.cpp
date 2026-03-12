@@ -8,7 +8,7 @@
 
  double cashIncome = 0.0;
  double nonCashIncome = 0.0;
- double cashBox = rand() % 30000 + 25000;
+ double cashBox = rand() % 40000 + 150000;
 
 
  void Sellings()
@@ -25,6 +25,13 @@
 	 {
 		 srand(time(NULL));
 		 ShowStorage();
+		 if (!isFirst)
+		 {
+			 std::cout << "\n\nВаш чек\n";
+			 PrintCheck(totalSum);
+		 }
+
+
 		 std::cout << "\n Введите ID товара для покупки или \"exit\" для завершения покупок: ";
 		 Getline(chooseId);
 		 if (chooseId == "exit")
@@ -42,95 +49,106 @@
 				 Getline(choose);
 				 if (choose == "1")
 				 {
-					 system("cls");
-					 std::cout << "Выберите способ оплаты\n1 - Наличными\n2 - Безнал\nВвод";
-					 Getline(choose);
-					 if (choose == "1")
+					 while (true)
 					 {
-						 std::cout << "Введите кол-во наличных: ";
-						 Getline(chooseCash);
-						 if (IsNumber(chooseCash))
-						 {
-							 money = std::stod(chooseCash);
-							 if (money < totalSum)
-							 {
-								 std::cout << "Недостаточно средств!!\n";
-								 Sleep(1500);
-								 continue;
-							 }
-							 else if (money - totalSum > cashBox)
-							 {
-								 std::cout << "Нет возможности выдать сдачу. Повторите попытку\n";
-								 Sleep(1500);
-								 continue;
-							 }
-							 else
-							 {
-								 std::cout << "Ваши " << money << "\n";
-								 Sleep(300);
-								 std::cout << "Оплата прошла успешно. Сдача: " << money - totalSum << " Рублей\n\n";
-								 Sleep(1400);
-								 cashBox += totalSum;
-								 cashIncome += totalSum;
-								 system("cls");
-								
-
-							 }
-
-						 }
-
-
-					 }
-					 else if (choose == "2")
-					 {
-						 while (true)
-						 {
-							 cardChance = rand() % 100 + 1;
-							 sleepTimer = 150;
-							 std::cout << "Приложите карту\n";
-							 system("pause");
-							 if (cardChance <= 30)
-							 {
-								 for (size_t i = 0; i < 5; i++)
-								 {
-									 Sleep(sleepTimer);
-									 std::cout << i + 1 << "   ";
-									 sleepTimer -= 20;
-									 Beep(500, 400);
-								 }
-								 std::cout << "\n\nСоединение не установлено. Повторите попытку!\n\n";
-								 Sleep(1500);
-							 }
-							 else
-							 {
-								 for (size_t i = 0; i < 5; i++)
-								 {
-									 Sleep(sleepTimer);
-									 std::cout << i + 1 << "   ";
-									 sleepTimer -= 20;
-									 Beep(500, 400);
-								 }
-								 std::cout << "Оплата прошла успешно";
-								 Sleep(1500);
-								 nonCashIncome += totalSum;
-								 break;
-							 }
-
-
-						 }
-						 
-					 }
-					 else if (choose == "Limbus" || choose == "limbus")
-					 {
-						 std::cout << "Чек оплачен\n";
-						 Sleep(1500);
 						 system("cls");
-						 CheckArrDeleter();
-						 return;
-					 }
-					 else
-					 {
-						 Err();
+						 std::cout << "Выберите способ оплаты\n1 - Наличными\n2 - Безнал\nВвод";
+						 Getline(choose);
+						 if (choose == "1")
+						 {
+							 std::cout << "Введите кол-во наличных: ";
+							 Getline(chooseCash);
+							 if (IsNumber(chooseCash))
+							 {
+								 money = std::stod(chooseCash);
+								 if (money < totalSum)
+								 {
+									 std::cout << "Недостаточно средств!!\n";
+									 Sleep(1500);
+									 continue;
+								 }
+								 else if (money - totalSum > cashBox)
+								 {
+									 std::cout << "Нет возможности выдать сдачу. Повторите попытку\n";
+									 Sleep(1500);
+									 continue;
+								 }
+								 else
+								 {
+									 std::cout << "Ваши " << money << "\n";
+									 Sleep(300);
+									 std::cout << "Оплата прошла успешно. Сдача: " << money - totalSum << " Рублей\n\n";
+									 Sleep(1400);
+									 cashBox += totalSum;
+									 cashIncome += totalSum;
+									 CheckArrDeleter();
+									 awardArr[currentId] += totalSum;
+									 system("cls");
+									 return;
+
+								 }
+
+							 }
+
+
+						 }
+						 else if (choose == "2")
+						 {
+							 while (true)
+							 {
+								 cardChance = rand() % 100 + 1;
+								 sleepTimer = 150;
+								 std::cout << "Приложите карту\n";
+								 system("pause");
+								 if (cardChance <= 30)
+								 {
+									 for (size_t i = 0; i < 5; i++)
+									 {
+										 Sleep(sleepTimer);
+										 std::cout << i + 1 << "   ";
+										 sleepTimer -= 20;
+										 Beep(500, 400);
+									 }
+									 std::cout << "\n\nСоединение не установлено. Повторите попытку!\n\n";
+									 Sleep(1500);
+								 }
+								 else
+								 {
+									 for (size_t i = 0; i < 5; i++)
+									 {
+										 Sleep(sleepTimer);
+										 std::cout << i + 1 << "   ";
+										 sleepTimer -= 20;
+										 Beep(500, 400);
+									 }
+									 std::cout << "Оплата прошла успешно";
+									 Sleep(1500);
+									 nonCashIncome += totalSum;
+									 CheckArrDeleter();
+									 awardArr[currentId] += totalSum;
+									 system("cls");
+									 return;
+
+
+								 }
+
+
+							 }
+
+						 }
+						 else if (choose == "Limbus" || choose == "limbus")
+						 {
+							 std::cout << "Чек оплачен\n";
+							 Sleep(1500);
+							 system("cls");
+							 CheckArrDeleter();
+							 return;
+						 }
+						 else
+						 {
+							 Err();
+						 }
+
 					 }
 
 				 }
@@ -228,7 +246,7 @@
 
 void PrintCheck(double totalSum)
 {
-	system("cls");
+	
 	std::cout << "# " << "ID\t" << std::left << std::setw(70) << "Название товара\t" << "Кол-во\t" 
 		<< "Цена\t" << "\tИтого\n";
 	for (size_t i = 0; i < checkSize; i++)
@@ -252,3 +270,5 @@ void CheckArrDeleter()
 	priceArrCheck = nullptr;
 	totalPriceArrCheck = nullptr;
 }
+
+

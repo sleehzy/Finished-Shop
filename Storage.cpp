@@ -373,6 +373,10 @@
 		 }
 		 else 
 		 {
+			 if (size < 1)
+			 {
+				 std::cout << "Склад пуст\n";
+			 }
 			 Err();
 		 }
 	 }
@@ -775,13 +779,3 @@
 	 }
  }
 
- void EmptyStorage()
- {
-	 system("cls");
-	 std::cout << "ID\t" << std::left << std::setw(70) << "Название товара\t" << "Кол-во\t" << "Цена\t" << "\n";
-	
-	 std::cout << "\n\n\n\n\n\t\tЗдесь пока обыкновенный пустой склад. Ждите обновления!!!!\n\n\n\n";
-	 system("pause");
-	
-
- }

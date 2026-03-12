@@ -30,7 +30,7 @@ void ChangeStorageLimits();
 
 void CheckExpensiveItem();
 
-void EmptyStorage();
+
 
 template<typename ArrType>
 static inline void FillArray(ArrType* dynamicArr, ArrType* staticArr)

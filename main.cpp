@@ -54,7 +54,13 @@ int main()
 	delete[] nameArr;
 	delete[] priceArr;
 	delete[] countArr;
-
+	if (isStorageCreated)
+	{
+		delete[] idArr;
+		delete[] nameArr;
+		delete[] priceArr;
+		delete[] countArr;
+	}
 
 	return 0;
 }
