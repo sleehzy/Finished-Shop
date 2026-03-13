@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Accounting.cpp" />
     <ClCompile Include="Accounts.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
@@ -131,6 +132,7 @@
     <ClCompile Include="Storage.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Accounting.hpp" />
     <ClInclude Include="Accounts.hpp" />
     <ClInclude Include="Login.hpp" />
     <ClInclude Include="Sellings.hpp" />

@@ -138,6 +138,7 @@ bool Login()
 			std::cout << "6) Редактировать склад\n";
 			std::cout << "7) Редактировать сотрудников\n";
 			std::cout << "8) Отчёт о прибыли\n";
+			std::cout << "9) Бухгалтерия\n";
 			std::cout << "0) Выход\n";
 			std::cout << "Ввод: ";
 			std::getline(std::cin, choose, '\n');
@@ -174,6 +175,10 @@ bool Login()
 			if (choose == "8")
 			{
 				ShowIncome();
+			}
+			if (choose == "9")
+			{
+				AccountingMenu();
 			}
 			if (choose == "0")
 			{
